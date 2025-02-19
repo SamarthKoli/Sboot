@@ -76,9 +76,43 @@ public class EmployeeService {
     }
     
     // Custom finder: fetch employees matching both salary and designation
-   public List<Employee> findBySalary(double Salary){
-       return	empRepository.findBySalary(Salary);
+   public List<Employee> findBySalary(double salary){
+       return	empRepository.findBySalary(salary);
     }
+   
+   public List<Employee> findByDesignation(String designation) {
+       return empRepository.findByDesignation(designation);
+   }
+   
+   public List<Employee> findByEmpName(String EmpName) {
+       return empRepository.findByEmpName(EmpName);
+   }
+   
+   // Find employees by salary and designation.
+   // Note: Repository method signature is findBySalaryAndDesignation(String desg, double salary)
+   public List<Employee> findBySalaryAndDesignation(String designation, double salary) {
+       return empRepository.findBySalaryAndDesignation(salary, designation);
+   }
+   
+   // Find employees with salary greater than or equal to a given value
+   public List<Employee> findBySalaryGreaterThanEqual(double salary) {
+       return empRepository.findBySalaryGreaterThanEqual(salary);
+   }
+   
+   // Find employees with salary between low and high values
+   public List<Employee> findBySalaryBetween(double lowSalary, double highSalary) {
+       return empRepository.findBySalaryBetween(lowSalary, highSalary);
+   }
+//   
+////   // Find employees by department name (assuming the Department entity has a field called departmentName)
+   public List<Employee> findByDeptObjDeptName(String DeptName) {
+       return empRepository.findByDeptObjDeptName(DeptName);
+   }
+////   
+   // Get employee(s) with the maximum salary
+   public List<Employee> getEmpWithMaxSalary() {
+       return empRepository.getEmpWithMaxSalary();
+   }
 	
 	
 	

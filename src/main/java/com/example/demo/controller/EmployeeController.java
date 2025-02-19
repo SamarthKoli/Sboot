@@ -59,6 +59,47 @@ public class EmployeeController {
     public List<Employee> findEmployeeBySalaryAndDesignation(@PathVariable double salary) {
         return employeeService.findBySalary(salary);
     }
+    @GetMapping("/viewByDesignation/{designation}")
+    public List<Employee> getEmployeesByDesignation(@PathVariable String designation) {
+        return employeeService.findByDesignation(designation);
+    }
+
+    @GetMapping("/viewByEmpName/{empName}")
+    public List<Employee> getEmployeesByEmpName(@PathVariable String EmpName) {
+        return employeeService.findByEmpName(EmpName);
+    }
+    
+    // Find employees by salary and designation
+    @GetMapping("/viewBySalaryAndDesignation/{designation}/{salary}")
+    public List<Employee> findEmployeeBySalaryAndDesignation(@PathVariable String designation, 
+                                                             @PathVariable double salary) {
+        return employeeService.findBySalaryAndDesignation(designation, salary);
+    }
+    
+    // Find employees with salary greater than or equal to a given value
+    @GetMapping("/viewBySalaryGte/{salary}")
+    public List<Employee> findEmployeeBySalaryGreaterThanEqual(@PathVariable double salary) {
+        return employeeService.findBySalaryGreaterThanEqual(salary);
+    }
+    
+    // Find employees with salary between two values
+    @GetMapping("/viewBySalaryBetween/{lowSalary}/{highSalary}")
+    public List<Employee> findEmployeeBySalaryBetween(@PathVariable double lowSalary, 
+                                                      @PathVariable double highSalary) {
+        return employeeService.findBySalaryBetween(lowSalary, highSalary);
+    }
+    
+    // Find employees by department name
+    @GetMapping("/viewByDeptName/{deptName}")
+    public List<Employee> findEmployeeByDeptName(@PathVariable String DeptName) {
+        return employeeService.findByDeptObjDeptName(DeptName);
+    }
+    
+    // Get employee(s) with the maximum salary
+    @GetMapping("/viewEmpWithMaxSalary")
+    public List<Employee> getEmpWithMaxSalary() {
+        return employeeService.getEmpWithMaxSalary();
+    }
 	
 	
 }

@@ -12,8 +12,8 @@ public class Employee {
 	@Id
 	private int EmpId;
 	private String EmpName;
-	private String Designation;
-	private double Salary;
+	private String designation; 
+	private double salary;  // Ensure lowercase "salary"
 	
 	@ManyToOne
 	@JoinColumn(name = "DeptId") // This is the foreign key column in Employee referencing Department
@@ -22,7 +22,7 @@ public class Employee {
 	
 	public Employee(String designation) {
 		super();
-		Designation = designation;
+		this.designation = designation;
 	}
 	
 	public Employee() {
@@ -33,9 +33,9 @@ public class Employee {
 	public Employee(int empId, String empName, double salary, Department deptObj, String desgination) {
 		super();
 		EmpId = empId;
-		Designation = desgination;
+		this.designation = desgination;
 		EmpName = empName;
-		Salary = salary;
+		this.salary = salary;
 		this.deptObj = deptObj;
 	}
 	
@@ -51,22 +51,24 @@ public class Employee {
 	public void setEmpName(String empName) {
 		EmpName = empName;
 	}
-	public double getSalary() {
-		return Salary;
-	}
-	public void setSalary(double salary) {
-		Salary = salary;
-	}
+	public double getSalary() {  
+        return salary;  
+    }  
+
+    public void setSalary(double salary) {  
+        this.salary = salary;  
+    }  
 	public Department getDeptObj() {
 		return deptObj;
 	}
 	public void setDeptObj(Department deptObj) {
 		this.deptObj = deptObj;
 	}
-	public String getDesignation() {
-		return Designation;
-	}
-	public void setDesignation(String designation) {
-		Designation = designation;
-	}
+	 public String getDesignation() {  
+	        return designation;  
+	    }  
+
+	    public void setDesignation(String designation) {  
+	        this.designation = designation;  
+	    }  
 }
